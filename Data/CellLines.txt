@@ -1,0 +1,70 @@
+Cell.line	Origin
+A-431	Skin
+A549	Lung
+AF22	Brain
+AN3-CA	Female reproductive system
+ASC diff	Mesenchymal
+ASC TERT1	Mesenchymal
+BEWO	Female reproductive system
+BJ	Mesenchymal
+BJ hTERT+	Mesenchymal
+BJ hTERT+ SV40 Large T+	Mesenchymal
+BJ hTERT+ SV40 Large T+ RasG12V	Mesenchymal
+CACO-2	Gastrointestinal tract
+CAPAN-2	Pancreas
+Daudi	Lymphoid
+EFO-21	Female reproductive system
+fHDF/TERT166	Mesenchymal
+GAMG	Brain
+HaCaT	Skin
+HAP1	Myeloid
+HBEC3-KT	Lung
+HBF TERT88 	Mesenchymal
+HDLM-2	Lymphoid
+HEK 293	Kidney & Urinary bladder
+HEL	Myeloid
+HeLa	Female reproductive system
+Hep G2	Liver & Gallbladder
+HHSteC	Mesenchymal
+HL-60	Myeloid
+HMC-1	Myeloid
+HSkMC	Muscle
+hTCEpi	Eye
+hTEC/SVTERT24-B	Lymphoid
+hTERT-HME1 	Female reproductive system
+hTERT-RPE1	Eye
+HUVEC TERT2	Endothelial
+JURKAT	Lymphoid
+K-562	Myeloid
+Karpas-707	Lymphoid
+LHCN-M2	Mesenchymal
+MCF7	Female reproductive system
+MOLT-4	Lymphoid
+NB-4	Myeloid
+NTERA-2	Kidney & Urinary bladder
+OE19	Proximal digestive tract
+PC-3	Male reproductive system
+REH	Lymphoid
+RH-30	Mesenchymal
+RPMI-8226	Lymphoid
+RPTEC TERT1	Kidney & Urinary bladder
+RT4	Kidney & Urinary bladder
+SCLC-21H 	Lung
+SH-SY5Y	Brain
+SiHa	Female reproductive system
+SK-BR-3	Female reproductive system
+SK-MEL-30	Skin
+SuSa	Male reproductive system
+T-47d	Female reproductive system
+THP-1	Myeloid
+TIME	Endothelial
+U-138 MG 	Brain
+U-2 OS	Mesenchymal
+U-2197	Mesenchymal
+U-251 MG 	Brain
+U-266/70	Lymphoid
+U-266/84	Lymphoid
+U-698	Lymphoid
+U-87 MG	Brain
+U-937	Myeloid
+WM-115	Skin

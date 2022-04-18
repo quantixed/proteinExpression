@@ -1,0 +1,63 @@
+Name	Human	Mouse	Disease	Knockout	SubcellularLocalization
+Rab1A	5861	19324			EE/ER/G/MS
+Rab1B	81876	76308			ER/G
+Rab2A	5862	59021		Preweaning lethality*	G/AP
+Rab2B	84932	76338			G/AP
+Rab3A	5864	19339	Earlybird [[139]]	Viable and fertile; perinatal lethality of Rab3A/B/C/D quadruple KO mice; 30% reduction of Ca2+-triggered synaptic release [[140-142]]	Acrosome/MS/SG/SV
+Rab3B	5865	69908		Viable and fertile [[140]]	G/RE/SG/SV/TJ
+Rab3C	115827	67295		Viable and fertile [[140]]	RE/SG/SV
+Rab3D	9545	19340		Viable and fertile [[140]]	G/LRO/SG/SV/TGN
+Rab4A	5867	19341			EE/RE
+Rab4B	53916	19342		Adipocyte hypertrophy and insulin resistance in T cell-specific KO mice [[143]]	EE/RE
+Rab5A	5868	271457			EE/early PS
+Rab5B	5869	19344			EE/PM
+Rab5C	5878	19345		Preweaning lethality*	EE/early PS
+Rab6A	5870	19346		Embryonic lethal; defects in basement membrane formation in KO embryos [[144, 145]]	G/P/TGN-derived vesicle
+Rab6B	51560	270192			G
+Rab6C	84084	–
+Rab41 (6D)	347517	–			ER/G
+Rab7A (7)	7879	19349	Charcot–Marie–Tooth type 2B [[146]]	Embryonic lethal; defects in microautophagy in the visceral endoderm of KO embryos [[147]]	AP/LE/LY/PS
+Rab7B (42)	338382	226421			LE
+Rab8A	4218	17274	Related to microvillus inclusion disease [[148]]	Die at postnatal week 4, defects in apical protein localization, and microvillus inclusion bodies [[130, 148, 149]]	C/RE/SG/TE/TGN
+Rab8B	51762	235442		No obvious phenotype; Rab8A/B double KO mice die at postnatal week 3 [[130]]	AJ/TGN
+Rab9A	9367	56382			LE/TGN
+Rab9B	51209	319642			LE
+Rab10	10890	19325		Embryonic lethal [[120]]	E/ER/P/RE/TE/TGN
+Rab11A	8766	53869		Embryonic lethal [[150-152]]	RE/TGN/TE/TGN-derived vesicle
+Rab11B	9230	19326	Intellectual disability [[153]]		RE
+Rab12	201475	19328			G/SG/RE/LE/LY
+Rab13	5872	68328		Viable; reduced lymphocyte numbers and reduced lymophocyte trafficking [[121]]	RE/TE/TGN/TJ
+Rab14	51552	68365			EE/G/P/PS/TGN
+Rab15	376267	104886			EE/RE
+Rab17	64284	19329			RE/MS
+Rab18	22931	19330	Warburg Micro syndrome [[154]]	Viable and fertile; ocular and neurological abnormalities [[155]]	ER/G/LD/P/SG
+Rab19	401409	19331			G
+Rab20	55647	19332		Decreased formation of Mycobacterium tuberculosis-containing proteolytic phagosomes [[119]]	ER/G/LE/PS
+Rab21	23011	216344		Preweaning lethality*	EE
+Rab22A	57403	19334			EE/RE/PS/TE
+Rab22B (31)	11031	106572			G/TGN/PS
+Rab23	51715	19335	Carpenter syndrome [[156]], open brain [[157]]	Embryonic lethality; neural-tube defects [[157]]	GAS-containing AP/E/PM/C
+Rab24	53917	19336	Canine hereditary ataxia [[158]]		AP/ER/G/LE/N
+Rab25	57111	53868		Increased tumor formation [[159, 160]]	RE
+Rab26	25837	328778		Decreased microvascular barrier function [[161]]	AP/LY/SG
+Rab27A	5873	11891	Griscelli syndrome type 2 [[162]], ashen [[163]]	Hypopigmentation; immunodeficincy [[164-166]]	MS/LRO/SG
+Rab27B	5874	80718		Secretory defects in various endocrine, exocrine, and immune cells [[167-169]]	MS/LRO/SG/SV
+Rab28	9364	100972	Cone-rod dystrophy [[170]]	Retina degeneration [[171]]
+Rab29 (7L1)	8934	226422	Association with Parkinson's disease [[172]]	Renal enlargement and discoloration [[173]]	G/RE/TGN
+Rab30	27314	75985			G
+Rab32	10981	67844		Increased susceptibility to Salmonella Typhi [[117]]; coat and eye pigment dilution, some enlarged lung multilamellar bodies, and prolonged bleeding in Rab32/38 DKO mice [[114]]	ER/G/LRO/MS/MT
+Rab33A	9363	19337		Viable and fertile**	G/SG/SV precursor
+Rab33B	83452	19338	Dyggve–Melchior–Clausen syndrome [[174, 175]]	Viable and fertile**	AP/G
+Rab34	83871	19376		Preweaning lethality; polydactyly; cleft-lip/palate; ciliogenesis defect [[124, 125]]	G/PS
+Rab35	11021	77407	Somatic mutations in human tumors [[176]]	Preweaning lethality*	EE/PM/RE
+Rab36	9609	76877			G/RE
+Rab37	326624	58222			SG
+Rab38	23682	72433	chocolate [[177]], Ruby [[178]]	Hypopigmentation; prolonged bleeding; pulmonary fibrosis [[179]]; coat and eye pigment dilution, some enlarged lung multilamellar bodies, and prolonged bleeding in Rab32/38 DKO mice [[114]]	G/LRO/MS
+Rab39A	54734	270160		Viable; reduced cross-presentation by dendritic cells [[122]]	G/LE/PS
+Rab39B	116442	67790	X-linked mental retardation/Parkinson's disease [[180, 181]]		ER/G
+Rab40A	142684	-
+Rab40B	10966	217371			TGN-derived vesicle
+Rab40C	57799	224624		Subviable*	ERC/LD
+Rab40AL	282808	–			G
+Rab42 (43)	115273	242681			G
+Rab43 (41)	339122	69834	Association with a hereditary liver–colon cancer syndrome [[182]]	Viable and fertile; reduced cross-presentation by dendritic cells [[183]]	G
