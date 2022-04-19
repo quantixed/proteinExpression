@@ -10,6 +10,20 @@ library("biomaRt")
 require(tidyverse)
 
 #####
+# Supporting functions
+
+data_summary <- function(data, varname, groupnames) {
+  require(plyr)
+  summary_func <- function(x, col) {
+    c(mean = mean(x[[col]], na.rm = TRUE),
+      sd = sd(x[[col]], na.rm = TRUE))
+    }
+  data_sum <- ddply(data, groupnames, .fun = summary_func, varname)
+  data_sum <- rename(data_sum, c("mean" = varname))
+  return(data_sum)
+}
+
+#####
 # Input for analysis
 
 # An example id list for TPD52-like proteins
@@ -62,7 +76,7 @@ orderedGeneNameList <- as.factor(df$Gene.name)
 # adjust plot heights depending on rough size of query
 if(length(geneNameList) <= 10) {
   heightVar <- 128
-} else if(length(geneNameList) <= 50) {
+} else if(length(geneNameList) <= 60) {
   heightVar <- 257
 } else {
   heightVar <- 512
@@ -99,6 +113,18 @@ plot_gcl_individual <- function(x,df) {
   return()
 }
 invisible(lapply(orderedGeneNameList, plot_gcl_individual, df = gcl))
+
+# summary data
+gcl_summary <- data_summary(gcl,"pTPM","Gene.name")
+p1_summary <- ggplot(gcl_summary, aes(x = reorder(Gene.name, pTPM), y = pTPM)) +
+  geom_point(fill = "gray") +
+  geom_errorbar(aes(ymin = pTPM - sd, ymax = pTPM + sd), width=.2,
+                position = position_dodge(.9)) +
+  theme(text = element_text(size = 8)) +
+  labs(x = "Gene", y = "Mean pTPM") +
+  coord_flip()
+p1_summary
+ggsave("Output/Plots/geneCellLinesSummary.png", plot = p1_summary, width = 170, height = heightVar, units = "mm")
 
 
 #####
@@ -139,7 +165,7 @@ plot_nt_individual <- function(x,df) {
     labs(x = "Tissue", y = "Protein expression") +
     facet_wrap(.~Gene.name)
   plotName <- paste0("Output/Plots/normalTissue_",x,".png")
-  ggsave(plotName, plot = iPlot, width = 120, height = heightVar, units = "mm")
+  ggsave(plotName, plot = iPlot, width = 120, height = 70, units = "mm")
   return()
 }
 invisible(lapply(orderedGeneNameList, plot_nt_individual, df = nt))
@@ -160,7 +186,7 @@ p3 <- gt %>%
   labs(x = "Tissue", y = "pTPM") +
   facet_wrap(.~Gene.name)
 p3
-ggsave("Output/Plots/geneTissue.png", plot = p3, width = 170, height = 257, units = "mm")
+ggsave("Output/Plots/geneTissue.png", plot = p3, width = 170, height = heightVar, units = "mm")
 
 # now plot individual expression across tissues
 plot_gt_individual <- function(x,df) {
@@ -182,3 +208,14 @@ plot_gt_individual <- function(x,df) {
 }
 invisible(lapply(orderedGeneNameList, plot_gt_individual, df = gt))
 
+# summary data
+gt_summary <- data_summary(gt,"pTPM","Gene.name")
+p3_summary <- ggplot(gt_summary, aes(x = reorder(Gene.name, pTPM), y = pTPM)) +
+  geom_point(fill = "gray") +
+  geom_errorbar(aes(ymin = pTPM - sd, ymax = pTPM + sd), width=.2,
+                position = position_dodge(.9)) +
+  theme(text = element_text(size = 8)) +
+  labs(x = "Gene", y = "Mean pTPM") +
+  coord_flip()
+p3_summary
+ggsave("Output/Plots/geneTissueSummary.png", plot = p3_summary, width = 170, height = heightVar, units = "mm")
