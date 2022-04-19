@@ -9,6 +9,9 @@ library("hpar")
 library("biomaRt")
 require(tidyverse)
 
+#####
+# Input for analysis
+
 # An example id list for TPD52-like proteins
 ids <- (c("ENSG00000076554",
           "ENSG00000111907",
@@ -25,6 +28,15 @@ my_ensembl_ids <- getBM(filters="entrezgene_id",
                         mart=ensembl)
 ids <- my_ensembl_ids$ensembl_gene_id
 
+# or retrieve Ensembl IDs for a GO Term
+ids <- getBM(attributes = 'ensembl_gene_id', 
+             filters = 'go', 
+             values = 'GO:0016192', 
+             mart = ensembl)
+
+#####
+# Process data
+
 # retrieve RNA expression data for cell lines for all ids
 gcl <- lapply(ids, getHpa, hpadata = "rnaGeneCellLine")
 gcl <- Reduce(rbind,gcl)
@@ -34,13 +46,27 @@ cellLineLUT <- read_delim("Data/CellLines.txt",delim = "\t", show_col_types = FA
 gcl <- merge(gcl,cellLineLUT)
 gcl$Origin <- as.factor(gcl$Origin)
 
-# because sorting will place e.g. Rab11 before Rab2:
+# there is a sorting issue with gene names:
+# 1) sorting will place e.g. Rab11 before Rab2
+# 2) AP3 needs to come before Rab1
 geneNameList <- unique(gcl$Gene.name)
-geneNumberList <- unlist(regmatches(geneNameList, gregexpr('?[0-9]+', geneNameList)))
+firstLetterList <- substr(geneNameList,1,2)
+matchList <- regmatches(geneNameList, regexec('?[0-9]+', geneNameList))
+geneNumberList <- unlist({matchList[lengths(matchList)==0] <- length(matchList); matchList})
 df <- data.frame(Gene.name = geneNameList,
+                 First.letter = firstLetterList,
                  Gene.number = as.numeric(geneNumberList))
-df <- df[order(df[,2],df[,1]),]
+df <- df[order(df[,2],df[,3],df[,1]),]
 orderedGeneNameList <- as.factor(df$Gene.name)
+
+# adjust plot heights depending on rough size of query
+if(length(geneNameList) <= 10) {
+  heightVar <- 128
+} else if(length(geneNameList) <= 50) {
+  heightVar <- 257
+} else {
+  heightVar <- 512
+}
 
 # make the large plot to compare expression of each gene in cell lines
 p1 <-  gcl %>%
@@ -52,7 +78,7 @@ p1 <-  gcl %>%
   labs(x = "Cell line", y = "pTPM") +
   facet_wrap(.~Gene.name)
 p1
-ggsave("Output/Plots/geneCellLines.png", plot = p1, width = 170, height = 257, units = "mm")
+ggsave("Output/Plots/geneCellLines.png", plot = p1, width = 170, height = heightVar, units = "mm")
 
 # now do individual plots of the expression in cell lines
 plot_gcl_individual <- function(x,df) {
@@ -95,7 +121,7 @@ p2 <- nt %>%
   labs(x = "Tissue", y = "Protein expression") +
   facet_wrap(.~Gene.name)
 p2
-ggsave("Output/Plots/normalTissue.png", plot = p2, width = 170, height = 257, units = "mm")
+ggsave("Output/Plots/normalTissue.png", plot = p2, width = 170, height = heightVar, units = "mm")
 
 # now plot individuals of protein expression
 plot_nt_individual <- function(x,df) {
@@ -113,7 +139,7 @@ plot_nt_individual <- function(x,df) {
     labs(x = "Tissue", y = "Protein expression") +
     facet_wrap(.~Gene.name)
   plotName <- paste0("Output/Plots/normalTissue_",x,".png")
-  ggsave(plotName, plot = iPlot, width = 120, height = 70, units = "mm")
+  ggsave(plotName, plot = iPlot, width = 120, height = heightVar, units = "mm")
   return()
 }
 invisible(lapply(orderedGeneNameList, plot_nt_individual, df = nt))
